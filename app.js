@@ -2,7 +2,24 @@
 const http = require("http");
 // Khỏi tạo server
 const server = http.createServer((request,respon)=>{
-    console.log(request.url);
+    if (request.url === "/") {
+        // console.log("Home Page");
+        respon.setHeader("Content-Type","text/html");// 
+        respon.write("<h1>Home page </h1>");// hiện thị ra màn hình
+        respon.end  //kết thúc
+    };
+    if (request.url === "/product") {
+        // console.log("Product Page");
+        respon.setHeader("Content-Type","text/html");
+        respon.write("<h1>Product page</h1>");
+        respon.end  //kết thúc
+    };
+    if (request.url === "/news") {
+        // console.log("Product Page");
+        respon.setHeader("Content-Type","text/html");
+        respon.write("<h1>New page</h1>");
+        respon.end  //kết thúc
+    };
 });
 //bước 3: lắng nghe cổng thực thi
 const port = 3001;
