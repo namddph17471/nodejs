@@ -4,11 +4,15 @@ const express = require("express");
 const app = express();
 const server = http.createServer(app);
 
-app.get("/",(request,respon)=>{
-    respon.send(`
-    <h1>Home page </h1>
-    `)
-})
+const homeRouter = require('./routers/home');
+const productRouter = require('./routers/product');
+const detailProductRouter = require('./routers/detailProduct');
+const newRouter = require('./routers/new');
+app.use(homeRouter);
+app.use(productRouter);
+app.use(newRouter);
+app.use(detailProductRouter);
+
 // Khỏi tạo server
 // const server = http.createServer((request,respon)=>{
 //     if (request.url === "/") {
