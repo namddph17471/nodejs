@@ -1,9 +1,9 @@
-const express = require("express");
-const route = express.Router();
-route.get("/news",(request,respon)=>{
+import express from "express";
+const newRouter = express.Router();
+newRouter.get("/news",(request,respon)=>{
     respon.send(`
     <h1>News page </h1>
     `)
 })
 
-module.exports = route;
+export default  newRouter;

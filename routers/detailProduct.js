@@ -1,10 +1,10 @@
-const express = require("express");
-const route = express.Router();
+import express from "express";
+const detailProductRouter = express.Router();
 
-route.get("/product/:id",(request,respon)=>{
+detailProductRouter.get("/product/:id",(request,respon)=>{
     respon.send(`
     <h1>Detail Product page </h1>
     ${request.params.id}
     `)
 })
-module.exports = route;
+export default detailProductRouter;
