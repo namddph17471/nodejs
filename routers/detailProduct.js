@@ -1,10 +1,11 @@
 import express from "express";
 const detailProductRouter = express.Router();
-
-detailProductRouter.get("/product/:id",(request,respon)=>{
-    respon.send(`
-    <h1>Detail Product page </h1>
-    ${request.params.id}
-    `)
+const products = [
+    {id:1,name:"Vô thủy"},
+    {id:2,name:"Từ"}
+]
+detailProductRouter.get("/products/:id",(request,respon)=>{
+    const product = products.find(item => item.id == +request.params.id);
+    respon.json(product)
 })
 export default detailProductRouter;
