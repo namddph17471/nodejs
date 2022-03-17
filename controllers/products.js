@@ -4,7 +4,6 @@ const products = [
 ]
 export const listProduct = (request,respon)=>{
     respon.json(products)
-    
 }
 export const listProductDetail = (request,respon)=>{
     const product = products.find(item => item.id == +request.params.id);
