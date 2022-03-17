@@ -3,14 +3,12 @@ import express from "express";
 import homeRouter from "./routers/home";
 import productRouter from "./routers/product";
 import newRouter from "./routers/new";
-import detailProductRouter from "./routers/detailProduct";
 const app = express();
 
 app.use(express.json());
 app.use(homeRouter);
 app.use("/api",productRouter);
 app.use(newRouter);
-app.use("/api",detailProductRouter);
 
 // Khỏi tạo server
 // const server = http.createServer((request,respon)=>{
