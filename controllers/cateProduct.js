@@ -1,6 +1,5 @@
-import { response } from "express";
-import { request } from "express";
 import CateProduct from "../models/cateProduct";
+
 export const listCateProduct = async(request,response)=>{
     try {
         const cateProduct = await CateProduct.find({}).exec();
