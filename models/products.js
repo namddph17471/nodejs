@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose ,{ObjectId}from "mongoose";
 const productSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -8,6 +8,10 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true,
         number:true
+    },
+    cateProduct:{
+        type: ObjectId,
+        ref:"CateProduct"
     }
 })
 export default mongoose.model('Product',productSchema) 
