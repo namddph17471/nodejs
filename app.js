@@ -13,7 +13,7 @@ app.use("/api",productRouter);
 app.use("/api",cateProductRouter)
 app.use(newRouter);
 mongoose.connect('mongodb://localhost:27017/web16307');
-//bước 3: lắng nghe cổng thực thi
+
 const port = 3001;
 app.listen(port,()=>{
     console.log(`server is running on ${port}`);
