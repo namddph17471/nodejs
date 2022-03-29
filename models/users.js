@@ -26,7 +26,7 @@ userSchema.methods = {
     encrytPassword(password){
         if(!password) return 
         try {
-            return createHmac("sha256", "abcs").update(password).digest("hex");
+            return createHmac("sha256", "123456").update(password).digest("hex");
         } catch (error) {
             console.log(error)
         }

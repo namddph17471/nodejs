@@ -46,6 +46,6 @@ export const signin = async (request,response)=>{
             }
         })
     } catch (error) {
-        
+        console.log(error)
     }
 }
