@@ -5,7 +5,7 @@ export const signup = async (request, response)=>{
     try {
         const exitUser = await User.findOne({email}).exec()
         if (exitUser) {
-            response.json({
+            return  response.status(400).json({
                 message:"Email đã tồn tại"
             })
         }

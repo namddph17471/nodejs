@@ -2,21 +2,25 @@ import mongoose from "mongoose";
 import {createHmac} from 'crypto'
 const userSchema= new mongoose.Schema({
     name:{
-        type:String
+        type:String,
+        required:true
     },
     email:{
-        type:String
+        type:String,
+        required:true
     },
     password:{
-        type:String
+        type:String,
+        required:true
     },
     role:{
         type:Number,
+        required:true,
         default:0
     }
 },{timestamps:true})
 userSchema.methods = {
-    authenticate(password){ //123456
+    authenticate(password){ 
         return this.password == this.encrytPassword(password);
     },
     encrytPassword(password){
