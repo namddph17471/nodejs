@@ -28,12 +28,9 @@ userSchema.methods = {
         }
     }
 }
-// trước khi execute .save() thì chạy middleware sau.
 userSchema.pre("save", function(next){
     this.password = this.encrytPassword(this.password);
-    next();
+    next()
 })
-// userSchema.pre("save",function(next){
-//     this.password = this.password.createHmac("sha256","123456").update(this.password).disget("hex")
-// })
+
 export default mongoose.model("User",userSchema)

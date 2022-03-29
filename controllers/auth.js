@@ -37,7 +37,7 @@ export const signin = async (request,response)=>{
                 message: "Sai mật khẩu"
             })
         }
-        request.json({
+        response.json({
             user:{
                 _id:user.id,
                 name:user.name,

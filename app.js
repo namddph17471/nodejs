@@ -6,9 +6,11 @@ import productRouter from "./routers/product";
 import newRouter from "./routers/new";
 import cateProductRouter from "./routers/cateProduct";
 import userRouter from "./routers/user";
+import cors from 'cors';
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 app.use(homeRouter);
 app.use("/api",productRouter);
 app.use("/api",cateProductRouter)
