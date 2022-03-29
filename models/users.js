@@ -33,8 +33,12 @@ userSchema.methods = {
     }
 }
 userSchema.pre("save", function(next){
-    this.password = this.encrytPassword(this.password);
-    next()
+    try {
+        this.password = this.encrytPassword(this.password);
+        next()
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 export default mongoose.model("User",userSchema)
