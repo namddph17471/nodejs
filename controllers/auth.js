@@ -29,12 +29,12 @@ export const signin = async (request,response)=>{
         const user = await User.findOne({email}).exec();
         if(!user){
             response.status(400).json({
-                message: "email không tồn tại"
+                message: "Sai email or password"
             })
         }
         if(!user.authenticate(password)){
             response.status(400).json({
-                message: "Sai mật khẩu"
+                message: "Sai email or password"
             })
         }
         response.json({
