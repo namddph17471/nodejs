@@ -21,7 +21,11 @@ const userSchema= new mongoose.Schema({
 },{timestamps:true})
 userSchema.methods = {
     authenticate(password){ 
-        return this.password == this.encrytPassword(password);
+        try {
+            return this.password == this.encrytPassword(password);
+        } catch (error) {
+            console.log(error)            
+        }
     },
     encrytPassword(password){
         if(!password) return 
