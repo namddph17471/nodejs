@@ -6,8 +6,7 @@ export const requiredSignin = expressJwt({
     requestProperty: "auth"
 })
 export const isAuth = (request,response,next)=>{
-    console.log(request.auth)
-    console.log(request.profile)
+    
     if (!(request.profile._id == request.auth._id)) {
         return response.status(400).json({
             message:"Bạn không có quyền truy cập"

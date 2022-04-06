@@ -5,8 +5,8 @@ import { isAdmin, isAuth, requiredSignin } from "../middlewares/checkAuth";
 const cateProductRouter = express.Router();
 cateProductRouter.get("/cateProduct",listCateProduct);
 cateProductRouter.get("/cateProduct/:id",listdetailCateproduct);
-cateProductRouter.put("/cateProduct/:id",upadteCateProduct);
-cateProductRouter.delete("/cateProduct/:id",deleteCateProduct);
+cateProductRouter.put("/cateProduct/:id/:userId",requiredSignin,isAuth,isAdmin,upadteCateProduct);
+cateProductRouter.delete("/cateProduct/:id/:userId",requiredSignin,isAuth,isAdmin,deleteCateProduct);
 cateProductRouter.post("/cateProduct/:userId",requiredSignin,isAuth,isAdmin,createCateProduct);
 
 

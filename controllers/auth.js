@@ -38,7 +38,7 @@ export const signin = async (request,response)=>{
                 message: "Sai email or password"
             })
         }
-        const token = jwt.sign({_id:user._id},"123456",{expiresIn:36000})
+        const token = jwt.sign({_id:user._id},"123456",{expiresIn:3600000000})
         response.json({
             token,
             user:{

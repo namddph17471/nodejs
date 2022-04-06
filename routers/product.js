@@ -8,7 +8,7 @@ productRouter.get("/products",listProduct)
 productRouter.get("/products/:id",listProductDetail)
 productRouter.post("/products/:userId",requiredSignin,isAuth,isAdmin, createProduct)
 productRouter.delete("/products/:id",deleteProduct)
-productRouter.put("/products/:id",updateProduct)
+productRouter.put("/products/:id/:userId",requiredSignin,isAuth,isAdmin,updateProduct)
 
 
 productRouter.param("userId",userById)

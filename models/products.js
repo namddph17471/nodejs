@@ -9,6 +9,14 @@ const productSchema = new mongoose.Schema({
         required:true,
         number:true
     },
+    image:{
+        type:String,
+        required:true
+    },
+    desc:{
+        type:String,
+        required:true
+    },
     cateProduct:{
         type: ObjectId,
         ref:"CateProduct"
