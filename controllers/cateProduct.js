@@ -22,7 +22,7 @@ export const listdetailCateproduct = async(request,response)=>{
         const cateProduct = await CateProduct.findOne({_id:request.params.id}).exec();
         // const product = await Product.find({cateProduct}).exec()
         // const product = await Product.find({cateProduct}).select("-cateProduct").exec()
-        const product = await Product.find({cateProduct}).populate("cateProduct").exec()
+        const product = await Product.find({cateProductId:request.params.id}).populate("cateProductId").exec()
 
         response.json({cateProduct,product});
     } catch (error) {

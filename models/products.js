@@ -17,9 +17,10 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    cateProduct:{
+    cateProductId:{
         type: ObjectId,
-        ref:"CateProduct"
+        ref:"CateProduct",
+        required:true
     }
 },{timestamps:true})
 export default mongoose.model('Product',productSchema) 

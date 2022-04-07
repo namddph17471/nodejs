@@ -1,20 +1,32 @@
+import CateProduct from '../models/cateProduct';
 import Product from '../models/products'
 export const listProduct = async (request,response)=>{
-    const limit = +request.query.limit ;
-    const populate = request.query.expand
-    const sortBy = request.query.sortBy;
-    const order = request.query.order ? request.query.order : 'asc';
-    const page = +request.query.page 
+    const order = request.query["_order"] ;
+    const limit = +request.query.limit
+    const cateProductId = request.query.cateProductId
+    const populate = request.query["_expand"]
     try {
-      const product = await Product.find({}).limit(limit).sort({createdAt:order}).skip((page-1)*limit).exec();
-      response.json(product)
+      const product = await Product
+      .find({})
+      .limit(limit)
+      .populate(populate)
+      .sort({createdAt:order})
+      .exec();
+      const productRelated = await Product.find({cateProductId:cateProductId}).exec()
+      response.json({product,productRelated})
     } catch (error) {
         response.status(400).json({message:"Lỗi không hiển thị được"})
     }
 }
 export const listProductDetail = async (request,response)=>{
+    const order = request.query.order
+    const limit = +request.query.limit ;
+    const populate = request.query["_expand"]
     try {
-        const product = await Product.findOne({_id:request.params.id}).exec();
+        const product = await Product
+        .findOne({_id:request.params.id})
+        .populate(populate)
+        .exec();
         response.json(product);
     } catch (error) {
         response.status(400).json({message:"Lỗi không hiển thị được"})
