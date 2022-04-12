@@ -13,8 +13,8 @@ export const list = async (request,response)=>{
       .sort({createdAt:order})
       .exec();
       if (cateNewId) {
-          const newRelated = await New.find({cateNewId:cateNewId}).limit(limit).exec()
-            response.json({news,newRelated})
+          const newRelateds = await New.find({cateNewId:cateNewId}).limit(limit).exec()
+            response.json({news,newRelateds})
       }else{
           response.json(news)
       }

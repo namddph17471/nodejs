@@ -1,16 +1,25 @@
 import CateProduct from '../models/cateProduct';
 import Product from '../models/products'
 export const listProduct = async (request,response)=>{
-    const order = request.query["_order"] ;
     const limit = +request.query.limit
     const cateProductId = request.query.cateProductId
     const populate = request.query["_expand"]
+    const start = request.query["_start"]
+    let sortOpt = {};
+    if (request.query["_sort"]) {
+        const sortArr = request.query["_sort"].split(",");
+        const orderArr = (request.query["_order"] || "").split(",");
+        sortArr.forEach((sort, index) => {
+            sortOpt[sort] = orderArr[index] === "desc" ? -1 : 1;
+        });
+    }
     try {
       const product = await Product
       .find({})
       .limit(limit)
+      .skip(start)
       .populate(populate)
-      .sort({createdAt:order})
+      .sort(sortOpt)
       .exec();
       if (cateProductId) {
           const productRelated = await Product.find({cateProductId:cateProductId}).limit(limit).exec()
