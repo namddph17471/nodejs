@@ -12,8 +12,12 @@ export const listProduct = async (request,response)=>{
       .populate(populate)
       .sort({createdAt:order})
       .exec();
-      const productRelated = await Product.find({cateProductId:cateProductId}).exec()
-      response.json({product,productRelated})
+      if (cateProductId) {
+          const productRelated = await Product.find({cateProductId:cateProductId}).limit(limit).exec()
+            response.json({product,productRelated})
+      }else{
+          response.json(product)
+      }
     } catch (error) {
         response.status(400).json({message:"Lỗi không hiển thị được"})
     }
