@@ -1,4 +1,4 @@
-// Bước 1 ; include thư viên http
+
 import express from "express";
 import mongoose from "mongoose";
 import homeRouter from "./routers/home";
