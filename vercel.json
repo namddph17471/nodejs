@@ -8,7 +8,23 @@
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/products(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/users(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/cateNew(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/cateProduct(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/news(.*)",
             "dest": "/src/app.js"
         }
     ]
