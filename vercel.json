@@ -2,58 +2,58 @@
     "version": 2,
     "builds": [
         {
-            "src": "/src/app.js",
+            "src": "./app.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/api/products/(.*)",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/products",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/users",
-            "dest": "/src/app./js"
+            "dest": "/app./js"
         },
         {
             "src": "/api/users/(.*)",
-            "dest": "/src/app./js"
+            "dest": "/app./js"
         },
         {
             "src": "/api/cateNew",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/cateNew/(.*)",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/cateProduct",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/cateProduct/(.*)",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/news",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/news/(.*)",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/signup",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         },
         {
             "src": "/api/signin",
-            "dest": "/src/app.js"
+            "dest": "/app.js"
         }
     ]
 }
