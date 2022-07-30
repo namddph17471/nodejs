@@ -12,11 +12,27 @@
             "dest": "/src/app.js"
         },
         {
-            "src": "/api/users(.*)",
+            "src": "/api/products",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/api/users",
             "dest": "/src/app./js"
         },
         {
+            "src": "/api/users/(.*)",
+            "dest": "/src/app./js"
+        },
+        {
+            "src": "/api/cateNew",
+            "dest": "/src/app.js"
+        },
+        {
             "src": "/api/cateNew/(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/api/cateProduct",
             "dest": "/src/app.js"
         },
         {
@@ -24,7 +40,19 @@
             "dest": "/src/app.js"
         },
         {
+            "src": "/api/news",
+            "dest": "/src/app.js"
+        },
+        {
             "src": "/api/news/(.*)",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/api/signup",
+            "dest": "/src/app.js"
+        },
+        {
+            "src": "/api/signin",
             "dest": "/src/app.js"
         }
     ]
