@@ -8,23 +8,23 @@
     ],
     "routes": [
         {
-            "src": "/api/products(.*)",
+            "src": "/api/products/(.*)",
             "dest": "/src/app.js"
         },
         {
             "src": "/api/users(.*)",
+            "dest": "/src/app./js"
+        },
+        {
+            "src": "/api/cateNew/(.*)",
             "dest": "/src/app.js"
         },
         {
-            "src": "/api/cateNew(.*)",
+            "src": "/api/cateProduct/(.*)",
             "dest": "/src/app.js"
         },
         {
-            "src": "/api/cateProduct(.*)",
-            "dest": "/src/app.js"
-        },
-        {
-            "src": "/api/news(.*)",
+            "src": "/api/news/(.*)",
             "dest": "/src/app.js"
         }
     ]
